@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickRailTickets — Fast &amp; Easy Train Bookings</title>
+  <meta name="description" content="Book train tickets instantly via WhatsApp. Fast, reliable, zero app needed." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+════════════════════════════════════════════ -->
+<header class="nav">
+  <div class="nav__inner container">
+    <a href="#" class="nav__logo">
+      <span class="logo-icon">🚆</span>
+      <span class="logo-text">QuickRail<strong>Tickets</strong></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#book">Book</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <a href="#book" class="btn btn--nav">Book Now</a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__track" aria-hidden="true">
+    <div class="track-line"></div>
+    <div class="track-line"></div>
+  </div>
+  <div class="container hero__content">
+    <p class="hero__eyebrow">India's simplest ticket service</p>
+    <h1 class="hero__headline">
+      Your seat,<br/>
+      <span class="headline--accent">confirmed in minutes.</span>
+    </h1>
+    <p class="hero__sub">No app, no queue, no stress. Fill the form → pay UPI → get your ticket on WhatsApp.</p>
+    <div class="hero__cta-group">
+      <a href="#book" class="btn btn--primary btn--large">Book a Ticket</a>
+      <a href="#how" class="btn btn--ghost btn--large">See how it works</a>
+    </div>
+    <div class="hero__stats">
+      <div class="stat"><span class="stat__num">12,000+</span><span class="stat__label">Tickets booked</span></div>
+      <div class="stat__divider"></div>
+      <div class="stat"><span class="stat__num">4.9 ★</span><span class="stat__label">Avg. rating</span></div>
+      <div class="stat__divider"></div>
+      <div class="stat"><span class="stat__num">&lt;5 min</span><span class="stat__label">Avg. confirm time</span></div>
+    </div>
+  </div>
+  <div class="hero__train" aria-hidden="true">🚄</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════════ -->
+<section class="section how" id="how">
+  <div class="container">
+    <p class="section__eyebrow">Simple 3-step process</p>
+    <h2 class="section__title">From form to journey in minutes</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step__icon">📝</div>
+        <h3 class="step__title">Fill the form</h3>
+        <p class="step__desc">Enter your journey details — stations, date, passengers. Takes under a minute.</p>
+      </div>
+      <div class="step__arrow">→</div>
+      <div class="step">
+        <div class="step__icon">💸</div>
+        <h3 class="step__title">Pay via UPI</h3>
+        <p class="step__desc">Scan our QR code or use the UPI ID to pay securely. Instant transfer.</p>
+      </div>
+      <div class="step__arrow">→</div>
+      <div class="step">
+        <div class="step__icon">🎟️</div>
+        <h3 class="step__title">Get on WhatsApp</h3>
+        <p class="step__desc">We send your confirmed ticket to your WhatsApp number. Done!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BOOKING FORM + PAYMENT
+════════════════════════════════════════════ -->
+<section class="section book" id="book">
+  <div class="container book__grid">
+
+    <!-- Form card -->
+    <div class="card form-card">
+      <div class="card__header">
+        <h2 class="card__title">Book Your Ticket</h2>
+        <p class="card__sub">We'll confirm via WhatsApp within 5 minutes</p>
+      </div>
+      <form id="bookingForm" novalidate>
+
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Rahul Sharma" required autocomplete="name" />
+          <span class="field__err" id="nameErr"></span>
+        </div>
+
+        <div class="field">
+          <label for="mobile">Mobile Number</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">+91</span>
+            <input type="tel" id="mobile" name="mobile" placeholder="98765 43210" maxlength="10" required autocomplete="tel" />
+          </div>
+          <span class="field__err" id="mobileErr"></span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="from">From Station</label>
+            <input type="text" id="from" name="from" placeholder="New Delhi" required list="stationList" />
+            <span class="field__err" id="fromErr"></span>
+          </div>
+          <div class="field">
+            <label for="to">To Station</label>
+            <input type="text" id="to" name="to" placeholder="Mumbai CST" required list="stationList" />
+            <span class="field__err" id="toErr"></span>
+          </div>
+        </div>
+
+        <datalist id="stationList">
+          <option value="New Delhi"></option><option value="Mumbai CST"></option>
+          <option value="Howrah"></option><option value="Chennai Central"></option>
+          <option value="Bengaluru City"></option><option value="Hyderabad Deccan"></option>
+          <option value="Ahmedabad"></option><option value="Pune"></option>
+          <option value="Jaipur"></option><option value="Lucknow"></option>
+          <option value="Patna"></option><option value="Bhopal"></option>
+        </datalist>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="date">Journey Date</label>
+            <input type="date" id="date" name="date" required />
+            <span class="field__err" id="dateErr"></span>
+          </div>
+          <div class="field">
+            <label for="passengers">Passengers</label>
+            <select id="passengers" name="passengers" required>
+              <option value="">Select</option>
+              <option value="1">1 passenger</option>
+              <option value="2">2 passengers</option>
+              <option value="3">3 passengers</option>
+              <option value="4">4 passengers</option>
+              <option value="5">5 passengers</option>
+              <option value="6">6 passengers</option>
+            </select>
+            <span class="field__err" id="passengersErr"></span>
+          </div>
+        </div>
+
+        <!-- Price summary -->
+        <div class="price-summary" id="priceSummary" aria-live="polite">
+          <div class="price-row">
+            <span>Ticket fare (<span id="paxLabel">—</span>)</span>
+            <span id="fareAmt">—</span>
+          </div>
+          <div class="price-row">
+            <span>Service charge</span>
+            <span id="serviceAmt">—</span>
+          </div>
+          <div class="price-row price-row--total">
+            <span>Total</span>
+            <span id="totalAmt">—</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+          <span class="btn__icon">💬</span> Continue to WhatsApp &amp; Pay
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Payment card -->
+    <div class="card payment-card">
+      <div class="card__header">
+        <h2 class="card__title">Payment</h2>
+        <p class="card__sub">Scan QR or use UPI ID below</p>
+      </div>
+
+      <!-- QR Placeholder -->
+      <div class="qr-wrap">
+        <div class="qr-placeholder" id="qrPlaceholder">
+          <div class="qr-placeholder__inner">
+            <div class="qr-grid" aria-hidden="true">
+              <!-- decorative QR pattern generated by JS -->
+            </div>
+            <p class="qr-placeholder__label">UPI QR Code</p>
+            <p class="qr-placeholder__note">Replace with your actual QR image in <code>admin-config.js</code></p>
+          </div>
+        </div>
+        <p class="upi-id">UPI ID: <strong id="displayUpiId">loading…</strong></p>
+        <button class="btn btn--ghost btn--sm" id="copyUpiBtn" onclick="copyUPI()">📋 Copy UPI ID</button>
+      </div>
+
+      <div class="payment-steps">
+        <div class="ps"><span class="ps__num">1</span><span>Open any UPI app (GPay, PhonePe, Paytm…)</span></div>
+        <div class="ps"><span class="ps__num">2</span><span>Scan QR or pay to UPI ID above</span></div>
+        <div class="ps"><span class="ps__num">3</span><span>Screenshot your payment confirmation</span></div>
+        <div class="ps"><span class="ps__num">4</span><span>Send screenshot on WhatsApp after booking</span></div>
+      </div>
+
+      <div class="trust-badges">
+        <span class="badge">🔒 Secure</span>
+        <span class="badge">⚡ Instant</span>
+        <span class="badge">✅ Verified</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     REVIEWS
+════════════════════════════════════════════ -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <p class="section__eyebrow">What passengers say</p>
+    <h2 class="section__title">Trusted by thousands of travellers</h2>
+    <div class="reviews__grid">
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__text">"Got my ticket in literally 3 minutes. The WhatsApp confirmation is super convenient — no login, no app to install. Will use every time."</p>
+        <div class="review-card__author">
+          <div class="avatar" style="background:#1a56db">A</div>
+          <div>
+            <strong>Ananya Kapoor</strong>
+            <span>Delhi → Lucknow</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card review-card--featured">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__text">"Booked 4 tickets for family trip. Payment via GPay took 30 seconds. Agent was responsive and helpful. Highly recommend QuickRailTickets."</p>
+        <div class="review-card__author">
+          <div class="avatar" style="background:#7c3aed">R</div>
+          <div>
+            <strong>Rohan Mehta</strong>
+            <span>Mumbai → Pune</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★☆</div>
+        <p class="review-card__text">"Simple and honest service. No hidden fees, the price was exactly what was shown. The QR code makes payment so easy."</p>
+        <div class="review-card__author">
+          <div class="avatar" style="background:#059669">P</div>
+          <div>
+            <strong>Priya Nair</strong>
+            <span>Chennai → Bengaluru</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p class="review-card__text">"Senior citizen here — my son helped me fill the form once and I've been using it on my own ever since. Much easier than IRCTC!"</p>
+        <div class="review-card__author">
+          <div class="avatar" style="background:#b45309">S</div>
+          <div>
+            <strong>Suresh Gupta</strong>
+            <span>Jaipur → Ahmedabad</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAQ
+════════════════════════════════════════════ -->
+<section class="section faq" id="faq">
+  <div class="container faq__inner">
+    <div class="faq__left">
+      <p class="section__eyebrow">Common questions</p>
+      <h2 class="section__title">Everything you need to know</h2>
+      <p class="faq__more">Still have questions? <a href="#book" class="inline-link">Chat with us on WhatsApp →</a></p>
+    </div>
+    <div class="faq__list" id="faqList">
+
+      <details class="faq-item" open>
+        <summary class="faq-item__q">How long does ticket confirmation take?</summary>
+        <p class="faq-item__a">Usually under 5 minutes during business hours (8 AM – 10 PM). After you submit the form and complete the UPI payment, send us the payment screenshot on WhatsApp and we'll confirm your ticket right away.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__q">Which trains and classes are available?</summary>
+        <p class="faq-item__a">We book tickets on all major Indian Railway trains including Rajdhani, Shatabdi, Duronto, Mail/Express, and Passenger trains. All classes — Sleeper, 3AC, 2AC, 1AC, and CC — are available.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__q">What payment methods do you accept?</summary>
+        <p class="faq-item__a">We currently accept UPI payments via any app (Google Pay, PhonePe, Paytm, BHIM, etc.). Scan the QR code or enter our UPI ID directly. Net banking and card payments coming soon.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__q">Can I book tickets for someone else?</summary>
+        <p class="faq-item__a">Yes! Just enter the traveller's name in the form and your own mobile number for WhatsApp communication. We'll send the ticket to your WhatsApp.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__q">What is the cancellation and refund policy?</summary>
+        <p class="faq-item__a">Cancellations follow Indian Railway's standard cancellation charges. Contact us on WhatsApp with your booking reference and we'll process the cancellation. Refunds are credited within 5–7 working days.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__q">Is my payment information safe?</summary>
+        <p class="faq-item__a">Yes. We use UPI — a system regulated by the National Payments Corporation of India (NPCI). We never ask for your bank credentials, OTPs, or card details. Your money goes directly to our verified UPI ID.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="logo-icon">🚆</span>
+      <span class="logo-text">QuickRail<strong>Tickets</strong></span>
+      <p class="footer__tagline">Fast. Reliable. On WhatsApp.</p>
+    </div>
+    <div class="footer__links">
+      <a href="#book">Book Ticket</a>
+      <a href="#how">How It Works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <div class="footer__contact">
+      <p>Support on WhatsApp</p>
+      <a id="footerWA" href="#" class="btn btn--ghost btn--sm">💬 Chat with us</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2025 QuickRailTickets. Not affiliated with Indian Railways / IRCTC.</p>
+  </div>
+</footer>
+
+<!-- Toast notification -->
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+<!-- Scripts -->
+<script src="admin-config.js"></script>
+<script src="app.js"></script>
+</body>
+  </html>
+  
