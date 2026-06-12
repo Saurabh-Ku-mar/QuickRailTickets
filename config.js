@@ -7,7 +7,7 @@ const CONFIG = {
 
   // WhatsApp number with country code (no + or spaces)
   // Example: India number 98765 43210 → "919876543210"
-  WHATSAPP_NUMBER: "+917348624437",
+  WHATSAPP_NUMBER: "917348624437",
 
   // UPI ID for payment QR
   UPI_ID: "sk2940012@oksbi",
