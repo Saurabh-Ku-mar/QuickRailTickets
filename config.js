@@ -7,16 +7,16 @@ const CONFIG = {
 
   // WhatsApp number with country code (no + or spaces)
   // Example: India number 98765 43210 → "919876543210"
-  WHATSAPP_NUMBER: "919876543210",
+  WHATSAPP_NUMBER: "+917348624437",
 
   // UPI ID for payment QR
-  UPI_ID: "quickrailtickets@upi",
+  UPI_ID: "sk2940012@oksbi",
 
   // Business name shown on UPI payment page
-  UPI_NAME: "QuickRailTickets",
+  UPI_NAME: "Saurabh Kumar",
 
   // Optional: your business email for confirmation messages
-  SUPPORT_EMAIL: "support@quickrailtickets.com",
+  SUPPORT_EMAIL: "sk2940012@gmail.com",
 
   // WhatsApp message template — use {name}, {from}, {to}, {date}, {passengers}
   WA_MESSAGE_TEMPLATE:
